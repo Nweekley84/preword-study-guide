@@ -1,2 +1,2 @@
-# preword-study-guide
+# prework-study-guide
 Pre-work study for UCSD coding bootcamp.
