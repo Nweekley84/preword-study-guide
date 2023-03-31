@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="./assets/style.css">
     <title>Prework Study Guide</title>
   </head>
+
   <body>
     <header id="top">
       <h1>Prework Study Guide</h1>
       <img src="./assets/bowtie-cat.png" alt="Profile image of cat wearing a bow tie." />
+      <h2>✨ Open the Console to See What's Happening ✨</h2>
     </header>
+
     <main>
       <section class="card" id=""html-section">
         <h2>HTML</h2>
@@ -29,28 +32,238 @@
       </section>
 
       <section class="card" id="git-section">
-        <h2>Git v2.20.1</h2>
+        <h2>Git Cheat Sheet</h2>
+        <h3>Setup</h3>
         <ul>
-          <li>git status (self explanitory)</li>
-          <li>git add -A (Add all for push)</li>
-          <li>git commit -m "first commit" (Commit edits for repo)</li>
-          <li>git clone (Pull repo)</li>
-          <li>git push (Upload repo)</li>
-          <li>git checkout -b feature/name (Create new branch & switch to it)</li>
+          <li><strong>git config --global user.name "[firstname lastname]"</strong><br>
+          set a name that is identifiable for credit when review version history</li>
+          <li><strong>git config --global user.email "[valid-email]"</strong><br>
+          set an email address that will be associated with each history marker
+          </li>
+          <li><strong>git config --global color.ui auto</strong><br>
+          set automatic command line coloring for Git for easy reviewing
+          </li>
+        </ul><br>
 
-        </ul>
-      </section>
+        <h3>Setup & Initialization</h3>
+        <ul>
+          <li><strong>git init</strong><br>
+          initialize an existing directory as a Git repository
+          </li>
+          <li><strong>git clone [url]</strong><br>
+          retieve an entire repository from a hosted location via URL
+          </li>
+        </ul><br>
+
+        <h3>Stage & Snapshot</h3>
+        <ul>
+          <li><strong>git status</strong><br>
+          show modified files in working directory, staged for your next commit
+          </li>
+          <li><strong>git add [file]</strong><br>
+          add a file as it looks now to your next commit (stage)
+          </li>
+          <li><strong>git reset [file]</strong><br>
+          unstage a file while retaining the changes in working directory
+          </li>
+          <li><strong>git diff</strong><br>
+          diff of what is changed but not staged
+          </li>
+          <li><strong>git diff --staged</strong><br>
+          diff of what is staged but not yet committed
+          </li>
+          <li><strong>git commit -m ["descriptive message]</strong><br>
+          commit your staged content as a new commit snapshot
+          </li>
+        </ul><br>
+
+          <h3>Branch & Merge</h3>
+          <ul>
+          <li><strong>git branch</strong><br>
+          list your branches a * will appear next to the currently active branch
+          </li>
+          <li><strong>git branch [branch-name]</strong><br>
+          create a new branch at the current commit
+          </li>
+          <li><strong>git checkout</strong><br>
+          switch to another branch and check it out into your working directory
+          </li>
+          <li><strong>git merge [branch]</strong><br>
+          merge the specific branch's history into the current one
+          </li>
+          <li><strong>git log</strong><br>
+          show all commits in the current branch's history
+          </li>
+          </ul><br>
+
+          <h3>Inspect & Compare</h3>
+          <ul>
+          <li><strong>git log</strong><br>
+          show the commit history for the currently active branch
+          </li>
+          <li><strong>git log branchB..branchA</strong><br>
+          show the commits on branchA that are not on branchB
+          </li>
+          <li><strongg>git log --follow [file]></strong><br>
+          show the commits that changed file, even across renames
+          </li>
+          <li><strong>git diff branchB..branchA</strong><br>
+          show the diff of what is in branchA that is not in branchB
+          </li>
+          <li><strong>git show [SHA]</strong><br>
+          show any object in Git in human-readable format
+          </li>
+          </ul><br>
+
+          <h3>Tracking path changes</h3>
+          <ul>
+          <li><strong>git rm [file]</strong><br>
+          delete the file from project and stage the removal for commit
+          </li>
+          <li><strong>git mv [existin-path] [new-path]</strong><br>
+          change an existing file path and stage the move
+          </li>
+          <li><strong>git log --stat -M</strong><br>
+          show all commit logs with indication of any paths that moved
+          </li>
+          </ul><br>
+
+          <h3>Ignoring Patterns</h3>
+          <ul>
+          <li><strong>logs/<br>
+                      *.notes<br>
+                      pattern*/
+              </strong><br>
+          Save a file with desired patterns as gitignore with either direct string matches or wildcard globs
+          </li>
+          <li><strong>git config --global core.excludesfile [file]</strong><br>
+          system wide ignore pattern for all local repositories
+          </li>
+          </ul><br>
+
+          <h3>Share & Update</h3>
+          <ul>
+          <li><strong>git remote add [alias] [url]</strong><br>
+          add git URL as an alias
+          </li>
+          <li><strong>git fetch [alias]</strong><br>
+          fetch down all the branches from that Git remote
+          </li>
+          <li><strong>git merge [alias]/[branch]</strong><br>
+          merge a remote branch into your current branch to bring it up to date
+          </li>
+          <li><strong>git push [alias][branch]</strong><br>
+          Transmit local branch commits to the remote repository branch
+          </li>
+          <li><strong>git pul</strong><br>
+          fetch and merge any commits from the tracking remote branch
+          </li>
+          </ul><br>
+
+          <h3>Rewrite History</h3>
+          <ul>
+          <li><strong>git rebase [branch]</strong><br>
+          apply any commits of current branch ahead of specified one
+          </li>
+          <li><strong>git reset --hard [commit]</strong><br>
+          clear staging area, rewrite working tree from specified commit
+          </li>
+          </ul><br>
+
+          <h3>Temporary Commits</h3>
+          <ul>
+          <li><strong>git stash</strong><br>
+          Save modified and staged changes
+          </li>
+          <li><strong>git stash list</strong><br>
+          list stack-order of stashed file changes
+          </li>
+          <li><strong>git stash pop</strong><br>
+          write working from top of stash stack
+          </li>
+          <li><strong>git stash drop</strong><br>
+          discard the changes from top of stash stack
+          </li>
+          </ul><br>
+        </section>
 
       <section class="card" id="javascript-section">
         <h2>Javascript</h2>
+
+        <h3>Reminder</h3>
           <ul>
-            <li>Enter your Javascript notes here</li>
-          </ul>
+            <li>Javascript is array indexed meaning always start with the 0 integer.</li>
+          </ul><br>
+
+          <h3>Commenting out code</h3>
+          <ul>
+            <li>Put /* and */ before and after a block of code.</li>
+          </ul><br>
+
+          <h3>Function declaration</h3>
+          <ul>
+            <li>Defines the function using a function keyword.</li>
+          </ul><br>
+
+          <h3>Code block</h3>
+          <ul>
+            <li>Function body</li>
+          </ul><br>
+
+          <h3>Variable</h3>
+          <ul>
+            <li>A named container that allows us to store data in our code.</li>
+          </ul><br>
+
+
+      </section>
+
+      <section class="card" id="terminology-section">
+        <h2>Terminology</h2>
+        
+        <h3>Control Flow</h3>
+          <ul>
+            <li>The order in which a compter executes code in a file</li>
+          </ul><br>
+
+          <h3>Computational Thinking</h3>
+          <ul>
+              <li>Decompoistion</li>
+              <li>Pattern Recognition</li>
+              <li>Abstration</li>
+              <li>Testing & debugging algorithms</li>
+          </ul><br>
+
+          <h3>Array</h3>
+          <ul>
+            <li>Store a group of related data</li>
+          </ul><br>
+
+          <h3>Boolean</h3>
+          <ul>
+            <li>Represents a truth value that is, TURE or FALSE</li>
+          </ul><br>
+
+          <h3>Index</h3>
+          <ul>
+            <li>Represents the location of a peice of data inside an array</li>
+          </ul><br>
+
+          <h3>Function</h3>
+          <ul>
+            <li>A simple set of instructions that tells the computer how to perform a certain task.</li>
+          </ul><br>
+
+
       </section>
     </main>
 
     <footer>
       <p>I can code!</p>
     </footer>
+
+    <script src="./assets/script.js"></script>
+  
   </body>
-</html>
+
+  </html>
